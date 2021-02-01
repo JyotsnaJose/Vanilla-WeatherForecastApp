@@ -1,3 +1,25 @@
+body {
+  font-family: "Merienda One", cursive;
+}
+.currentWeather-wrapper {
+  border-style: groove;
+  padding: 20px;
+  border-radius: 6px;
+}
+.condition-list {
+  list-style: none;
+}
+.currentWeatherCondition {
+  margin: 35px auto;
+}
 h1 {
-  color: blue;
+  font-size: 30px;
+}
+#temperature {
+  font-size: 60px;
+}
+.tempFeelsLike {
+  display: block;
+  font-size: 13px;
+  line-height: 5px;
 }
