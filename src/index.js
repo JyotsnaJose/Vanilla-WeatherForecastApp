@@ -14,9 +14,60 @@ function getCurrentWeather(response) {
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
   let feelsLikeElement = document.querySelector("#feelsLike");
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  let formatedDateTime = formatDateTime(response.data.dt);
+  let dateTimeElement = document.querySelector("#date-time");
+  dateTimeElement.innerHTML = formatedDateTime;
+}
+function formatDateTime(dt) {
+  let dateTime = new Date(dt * 1000);
+  let month = dateTime.getMonth();
+  let date = dateTime.getDate();
+  let year = dateTime.getFullYear();
+  let day = dateTime.getDay();
+  let hour = dateTime.getHours();
+  let minutes = dateTime.getMinutes();
+
+  let allMonths = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let allDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  if (date < 10) {
+    date = `0${date}`;
+  }
+
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let dateAndTime = `${allMonths[month]} ${date} ${year}, ${allDays[day]}, ${hour}:${minutes} CST`;
+  return dateAndTime;
 }
 
 let apiKey = "77284b6440cc462afb48cef654bc731c";
-let city = "New York";
+let city = "Minnesota";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(getCurrentWeather);
