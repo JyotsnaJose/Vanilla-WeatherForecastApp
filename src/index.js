@@ -17,6 +17,11 @@ function getCurrentWeather(response) {
   let formatedDateTime = formatDateTime(response.data.dt);
   let dateTimeElement = document.querySelector("#date-time");
   dateTimeElement.innerHTML = formatedDateTime;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+  let apiIcon = response.data.weather[0].icon;
+  iconElement.setAttribute("src", `images/${apiIcon}.png`);
 }
 function formatDateTime(dt) {
   let dateTime = new Date(dt * 1000);
@@ -68,6 +73,6 @@ function formatDateTime(dt) {
 }
 
 let apiKey = "77284b6440cc462afb48cef654bc731c";
-let city = "Minnesota";
+let city = "minnesota";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(getCurrentWeather);

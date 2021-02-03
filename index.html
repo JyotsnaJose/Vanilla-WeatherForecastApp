@@ -23,18 +23,20 @@
       <div class="currentWeather-wrapper">
         <h1 id="cityName"></h1>
         <h6 id="date-time"></h6>
+        <h6 id="description"></h6>
         <div class="currentWeatherCondition">
           <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
               <div class="row">
-                <div class="col-6">
+                <div class="col-sm-6">
+                  <img src="" alt="weatherIcon" id="icon" class="float-start" />
                   <span id="temperature"></span>
                   <span> ºC | <a href="#"> ºF</a></span>
                   <i class="tempFeelsLike"
                     >Feels like <span id="feelsLike"></span> º</i
                   >
                 </div>
-                <div class="col-6">
+                <div class="col-sm-6">
                   <ul class="condition-list">
                     <li>High : <span id="tempHigh"></span> º</li>
                     <li>Low : <span id="tempLow"></span> º</li>
@@ -44,7 +46,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6"></div>
+            <div class="col-sm-6"></div>
           </div>
         </div>
       </div>
