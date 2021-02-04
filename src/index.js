@@ -72,7 +72,22 @@ function formatDateTime(dt) {
   return dateAndTime;
 }
 
-let apiKey = "77284b6440cc462afb48cef654bc731c";
-let city = "san fransisco";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(getCurrentWeather);
+function getCityInput(event) {
+  event.preventDefault();
+  let searchElement = document.querySelector("#search-input");
+  if (searchElement.value !== "") {
+    searchCity(searchElement.value);
+  } else {
+    searchCity("Minnesota");
+  }
+}
+function searchCity(city) {
+  let apiKey = "77284b6440cc462afb48cef654bc731c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(getCurrentWeather);
+}
+
+searchCity("Minnesota");
+
+let form = document.querySelector("#search");
+form.addEventListener("submit", getCityInput);
