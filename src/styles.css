@@ -1,7 +1,9 @@
 body {
   font-family: "Merienda One", cursive;
 }
-
+.container {
+  padding-top: 25px;
+}
 .currentWeather-wrapper {
   border-style: groove;
   padding: 20px;
@@ -37,4 +39,11 @@ h1 {
 .listImages {
   height: 15px;
   width: 15px;
+}
+#search-input {
+  max-width: 500px;
+}
+.button-icon {
+  height: 25px;
+  width: 25px;
 }

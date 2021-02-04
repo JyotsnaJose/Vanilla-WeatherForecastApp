@@ -20,6 +20,31 @@
   </head>
   <body>
     <div class="container">
+      <form id="search" class="mb-3">
+        <div class="input-group">
+          <input
+            type="search"
+            class="form-control"
+            id="search-input"
+            placeholder="Search for a city..."
+            autocomplete="off"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="search-button"
+          >
+            <img src="images/search.png" alt="search" class="button-icon" />
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="location-button"
+          >
+            <img src="images/location.png" alt="location" class="button-icon" />
+          </button>
+        </div>
+      </form>
       <div class="currentWeather-wrapper">
         <h1 id="cityName"></h1>
         <h6 id="date-time"></h6>
