@@ -73,6 +73,6 @@ function formatDateTime(dt) {
 }
 
 let apiKey = "77284b6440cc462afb48cef654bc731c";
-let city = "minnesota";
+let city = "san fransisco";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(getCurrentWeather);

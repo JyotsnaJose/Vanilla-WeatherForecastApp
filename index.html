@@ -26,9 +26,9 @@
         <h6 id="description"></h6>
         <div class="currentWeatherCondition">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-6">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-6">
                   <img src="" alt="weatherIcon" id="icon" class="float-start" />
                   <span id="temperature"></span>
                   <span> ºC | <a href="#"> ºF</a></span>
@@ -36,17 +36,41 @@
                     >Feels like <span id="feelsLike"></span> º</i
                   >
                 </div>
-                <div class="col-sm-6">
+                <div class="col-6">
                   <ul class="condition-list">
-                    <li>High : <span id="tempHigh"></span> º</li>
-                    <li>Low : <span id="tempLow"></span> º</li>
-                    <li>Humidity : <span id="humidity"></span> %</li>
-                    <li>Wind : <span id="windSpeed"></span> kmph</li>
+                    <li>
+                      <img
+                        src="images/up-arrow.png"
+                        alt=""
+                        class="listImages"
+                      />
+                      High : <span id="tempHigh"></span> º
+                    </li>
+                    <li>
+                      <img
+                        src="images/down-arrow.png"
+                        alt=""
+                        class="listImages"
+                      />
+                      Low : <span id="tempLow"></span> º
+                    </li>
+                    <li>
+                      <img
+                        src="images/humidity.png"
+                        alt=""
+                        class="listImages"
+                      />
+                      Humidity : <span id="humidity"></span> %
+                    </li>
+                    <li>
+                      <img src="images/wind.png" alt="" class="listImages" />
+                      Wind : <span id="windSpeed"></span> km/h
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6"></div>
+            <div class="col-6"></div>
           </div>
         </div>
       </div>

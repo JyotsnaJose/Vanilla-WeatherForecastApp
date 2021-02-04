@@ -1,6 +1,7 @@
 body {
   font-family: "Merienda One", cursive;
 }
+
 .currentWeather-wrapper {
   border-style: groove;
   padding: 20px;
@@ -8,8 +9,8 @@ body {
 }
 .condition-list {
   list-style: none;
-  padding-left: 60px;
   margin-top: 15px;
+  font-size: 15px;
 }
 .currentWeatherCondition {
   margin: 35px auto;
@@ -32,4 +33,8 @@ h1 {
 #icon {
   height: 70px;
   width: 70px;
+}
+.listImages {
+  height: 15px;
+  width: 15px;
 }
