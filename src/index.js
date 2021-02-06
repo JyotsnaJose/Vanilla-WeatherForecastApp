@@ -75,16 +75,17 @@ function formatDateTime(dt) {
 function getCityInput(event) {
   event.preventDefault();
   let searchElement = document.querySelector("#search-input");
-  if (searchElement.value !== "") {
-    searchCity(searchElement.value);
-  } else {
-    searchCity("Minnesota");
-  }
+  searchCity(searchElement.value);
 }
+
 function searchCity(city) {
   let apiKey = "77284b6440cc462afb48cef654bc731c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(getCurrentWeather);
+  axios.get(apiUrl).then(getCurrentWeather).catch(errorhandling);
+}
+
+function errorhandling() {
+  alert("Please enter a valild city name");
 }
 
 searchCity("Minnesota");
