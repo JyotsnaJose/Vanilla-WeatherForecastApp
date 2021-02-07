@@ -88,7 +88,23 @@ function errorhandling() {
   alert("Please enter a valild city name");
 }
 
+function locationButtonClick(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+function getLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "77284b6440cc462afb48cef654bc731c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(getCurrentWeather);
+}
+
 searchCity("Minnesota");
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", getCityInput);
+
+let locationElement = document.querySelector("#location-button");
+locationElement.addEventListener("click", locationButtonClick);
