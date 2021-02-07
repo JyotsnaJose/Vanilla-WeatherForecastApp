@@ -47,3 +47,9 @@ h1 {
   height: 25px;
   width: 25px;
 }
+.unitConversion .active {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: default;
+}

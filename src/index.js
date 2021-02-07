@@ -22,6 +22,10 @@ function getCurrentWeather(response) {
   let iconElement = document.querySelector("#icon");
   let apiIcon = response.data.weather[0].icon;
   iconElement.setAttribute("src", `images/${apiIcon}.png`);
+  celsiusTemperature = response.data.main.temp;
+  celsiusFeelsLike = response.data.main.feels_like;
+  celsiusHighTemperature = response.data.main.temp_max;
+  celsiusLowTemperature = response.data.main.temp_min;
 }
 function formatDateTime(dt) {
   let dateTime = new Date(dt * 1000);
@@ -101,10 +105,55 @@ function getLocation(position) {
   axios.get(apiUrl).then(getCurrentWeather);
 }
 
-searchCity("Minnesota");
+function fahrenheitConversion(event) {
+  event.preventDefault();
+  let fahrenheitTemperatue = celsiusTemperature * (9 / 5) + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperatue);
+  let fahrenheitFeelsLike = celsiusFeelsLike * (9 / 5) + 32;
+  let feelsLikeElement = document.querySelector("#feelsLike");
+  feelsLikeElement.innerHTML = Math.round(fahrenheitFeelsLike);
+  let fahrenheitHighTemperature = celsiusHighTemperature * (9 / 5) + 32;
+  let highTempElement = document.querySelector("#tempHigh");
+  highTempElement.innerHTML = Math.round(fahrenheitHighTemperature);
+  let fahrenheitLowTemperature = celsiusLowTemperature * (9 / 5) + 32;
+  let lowTempElement = document.querySelector("#tempLow");
+  lowTempElement.innerHTML = Math.round(fahrenheitLowTemperature);
+
+  fahrrenheitElement.classList.add("active");
+  celsiusElement.classList.remove("active");
+}
+
+function celsiusConversion(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let feelsLikeElement = document.querySelector("#feelsLike");
+  feelsLikeElement.innerHTML = Math.round(celsiusFeelsLike);
+  let highTempElement = document.querySelector("#tempHigh");
+  highTempElement.innerHTML = Math.round(celsiusHighTemperature);
+  let lowTempElement = document.querySelector("#tempLow");
+  lowTempElement.innerHTML = Math.round(celsiusLowTemperature);
+
+  celsiusElement.classList.add("active");
+  fahrrenheitElement.classList.remove("active");
+}
+
+let celsiusTemperature = null;
+let celsiusFeelsLike = null;
+let celsiusHighTemperature = null;
+let celsiusLowTemperature = null;
 
 let form = document.querySelector("#search");
 form.addEventListener("submit", getCityInput);
 
 let locationElement = document.querySelector("#location-button");
 locationElement.addEventListener("click", locationButtonClick);
+
+let fahrrenheitElement = document.querySelector("#fahenheit-link");
+fahrrenheitElement.addEventListener("click", fahrenheitConversion);
+
+let celsiusElement = document.querySelector("#celsius-link");
+celsiusElement.addEventListener("click", celsiusConversion);
+
+searchCity("Minnesota");
