@@ -22,10 +22,18 @@ function getCurrentWeather(response) {
   let iconElement = document.querySelector("#icon");
   let apiIcon = response.data.weather[0].icon;
   iconElement.setAttribute("src", `images/${apiIcon}.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   celsiusTemperature = response.data.main.temp;
   celsiusFeelsLike = response.data.main.feels_like;
   celsiusHighTemperature = response.data.main.temp_max;
   celsiusLowTemperature = response.data.main.temp_min;
+
+  //forecast api call
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiKey = "77284b6440cc462afb48cef654bc731c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 function formatDateTime(dt) {
   let dateTime = new Date(dt * 1000);
@@ -137,6 +145,31 @@ function celsiusConversion(event) {
 
   celsiusElement.classList.add("active");
   fahrrenheitElement.classList.remove("active");
+}
+
+function getForecastDays(timestamp) {
+  let date = new Date(timestamp);
+  let day = date.getDay();
+  let allDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return allDays[day];
+}
+
+function showForecast(response) {
+  console.log(response.data.daily[0]);
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily[0];
+  let forecastDay = getForecastDays(forecast.dt);
+  forecastElement.innerHTML = `
+  <div class="col-2">
+    <h6 id="forecastDay">${forecastDay}</h6>
+    <img src="images/${
+      forecast.weather[0].icon
+    }.png" alt="" class="forecastIcon" />
+    <h6>${Math.round(forecast.temp.max)}º / ${Math.round(
+    forecast.temp.min
+  )}º</h6>
+  </div>
+  `;
 }
 
 let celsiusTemperature = null;
