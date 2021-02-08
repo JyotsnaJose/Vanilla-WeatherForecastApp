@@ -57,3 +57,6 @@ h1 {
   font-weight: bold;
   cursor: default;
 }
+#forecast {
+  text-align: center;
+}

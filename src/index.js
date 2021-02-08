@@ -148,7 +148,7 @@ function celsiusConversion(event) {
 }
 
 function getForecastDays(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let allDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return allDays[day];
@@ -157,19 +157,21 @@ function getForecastDays(timestamp) {
 function showForecast(response) {
   console.log(response.data.daily[0]);
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.daily[0];
-  let forecastDay = getForecastDays(forecast.dt);
-  forecastElement.innerHTML = `
+  let forecast = null;
+  forecastElement.innerHTML = null;
+  for (i = 0; i < 6; i++) {
+    forecast = response.data.daily[i];
+    let forecastDay = getForecastDays(forecast.dt);
+    forecastElement.innerHTML += `
   <div class="col-2">
     <h6 id="forecastDay">${forecastDay}</h6>
     <img src="images/${
       forecast.weather[0].icon
     }.png" alt="" class="forecastIcon" />
-    <h6>${Math.round(forecast.temp.max)}º / ${Math.round(
-    forecast.temp.min
-  )}º</h6>
+    <h6>${Math.round(forecast.temp.max)}º/${Math.round(forecast.temp.min)}º</h6>
   </div>
   `;
+  }
 }
 
 let celsiusTemperature = null;
