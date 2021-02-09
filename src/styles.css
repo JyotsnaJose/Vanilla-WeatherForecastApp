@@ -1,13 +1,31 @@
 body {
   font-family: "Merienda One", cursive;
+  background: linear-gradient(to bottom left, #235faf 0%, #47d2dc 100%);
+  background-repeat: no-repeat;
 }
 .container {
-  padding-top: 25px;
+  margin-top: 25px;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 .currentWeather-wrapper {
   border-style: groove;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: 9px;
+}
+#search {
+  box-shadow: 5px 5px 5px black;
+  max-width: 500px;
+  border-radius: 9px;
+}
+#search-input {
+  max-width: 500px;
+}
+.searchButtons {
+  background-color: #3a79ac;
+}
+.searchButtons:hover {
+  background-color: #235faf;
 }
 .condition-list {
   list-style: none;
@@ -44,9 +62,6 @@ h1 {
   height: 15px;
   width: 15px;
 }
-#search-input {
-  max-width: 500px;
-}
 .button-icon {
   height: 25px;
   width: 25px;
@@ -59,4 +74,11 @@ h1 {
 }
 #forecast {
   text-align: center;
+}
+.eachDayForecast {
+  border-style: none;
+  transition: all 200ms ease-in-out;
+}
+.eachDayForecast:hover {
+  background: linear-gradient(to right, #235faf 0%, #47d2dc 100%);
 }

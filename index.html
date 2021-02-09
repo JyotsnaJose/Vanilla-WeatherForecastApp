@@ -20,106 +20,112 @@
   </head>
   <body>
     <div class="container">
-      <form id="search" class="mb-3">
-        <div class="input-group">
-          <input
-            type="search"
-            class="form-control"
-            id="search-input"
-            placeholder="Search for a city..."
-            autocomplete="off"
-          />
-          <button
-            class="btn btn-outline-secondary"
-            type="submit"
-            id="search-button"
-          >
-            <img src="images/search.png" alt="search" class="button-icon" />
-          </button>
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="location-button"
-          >
-            <img src="images/location.png" alt="location" class="button-icon" />
-          </button>
-        </div>
-      </form>
-      <div class="currentWeather-wrapper">
-        <h1 id="cityName"></h1>
-        <h6 id="date-time"></h6>
-        <h6 id="description"></h6>
-        <div class="currentWeatherCondition">
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
-                <div class="col-6">
-                  <img
-                    src=""
-                    alt="Weather Icon"
-                    id="icon"
-                    class="float-start"
-                  />
-                  <span id="temperature"></span>
-                  <span class="unitConversion"
-                    ><a href="#" id="celsius-link" class="active"> ºC</a> |
-                    <a href="#" id="fahenheit-link"> ºF</a></span
-                  >
-                  <i class="tempFeelsLike"
-                    >Feels like <span id="feelsLike"></span>º</i
-                  >
-                </div>
-                <div class="col-6">
-                  <ul class="condition-list">
-                    <li>
-                      <img
-                        src="images/up-arrow.png"
-                        alt="High Temperature"
-                        class="listImages"
-                      />
-                      High : <span id="tempHigh"></span>º
-                    </li>
-                    <li>
-                      <img
-                        src="images/down-arrow.png"
-                        alt="Low Temperature"
-                        class="listImages"
-                      />
-                      Low : <span id="tempLow"></span>º
-                    </li>
-                    <li>
-                      <img
-                        src="images/humidity.png"
-                        alt="Humidity"
-                        class="listImages"
-                      />
-                      Humidity : <span id="humidity"></span>%
-                    </li>
-                    <li>
-                      <img
-                        src="images/wind.png"
-                        alt="Wind"
-                        class="listImages"
-                      />
-                      Wind : <span id="windSpeed"></span>km/h
-                    </li>
-                  </ul>
+      <div class="displayArea">
+        <form id="search" class="mb-3">
+          <div class="input-group">
+            <input
+              type="search"
+              class="form-control"
+              id="search-input"
+              placeholder="Search for a city..."
+              autocomplete="off"
+            />
+            <button
+              class="btn btn-outline-secondary searchButtons"
+              type="submit"
+              id="search-button"
+            >
+              <img src="images/search.png" alt="search" class="button-icon" />
+            </button>
+            <button
+              class="btn btn-outline-secondary searchButtons"
+              type="button"
+              id="location-button"
+            >
+              <img
+                src="images/location.png"
+                alt="location"
+                class="button-icon"
+              />
+            </button>
+          </div>
+        </form>
+        <div class="currentWeather-wrapper">
+          <h1 id="cityName"></h1>
+          <h6 id="date-time"></h6>
+          <h6 id="description"></h6>
+          <div class="currentWeatherCondition">
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <img
+                      src=""
+                      alt="Weather Icon"
+                      id="icon"
+                      class="float-start"
+                    />
+                    <span id="temperature"></span>
+                    <span class="unitConversion"
+                      ><a href="#" id="celsius-link" class="active"> ºC</a> |
+                      <a href="#" id="fahenheit-link"> ºF</a></span
+                    >
+                    <i class="tempFeelsLike"
+                      >Feels like <span id="feelsLike"></span>º</i
+                    >
+                  </div>
+                  <div class="col-6">
+                    <ul class="condition-list">
+                      <li>
+                        <img
+                          src="images/up-arrow.png"
+                          alt="High Temperature"
+                          class="listImages"
+                        />
+                        High : <span id="tempHigh"></span>º
+                      </li>
+                      <li>
+                        <img
+                          src="images/down-arrow.png"
+                          alt="Low Temperature"
+                          class="listImages"
+                        />
+                        Low : <span id="tempLow"></span>º
+                      </li>
+                      <li>
+                        <img
+                          src="images/humidity.png"
+                          alt="Humidity"
+                          class="listImages"
+                        />
+                        Humidity : <span id="humidity"></span>%
+                      </li>
+                      <li>
+                        <img
+                          src="images/wind.png"
+                          alt="Wind"
+                          class="listImages"
+                        />
+                        Wind : <span id="windSpeed"></span>km/h
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+              <div class="col-6"></div>
             </div>
-            <div class="col-6"></div>
+          </div>
+          <hr />
+          <div>
+            <div class="row" id="forecast"></div>
           </div>
         </div>
-        <hr />
-        <div>
-          <div class="row" id="forecast"></div>
+        <div class="footer">
+          <a href="https://github.com/JyotsnaJose/Vanilla-WeatherForecastApp"
+            >Open-source code</a
+          >
+          by Jyotsna Jose
         </div>
-      </div>
-      <div class="footer">
-        <a href="https://github.com/JyotsnaJose/Vanilla-WeatherForecastApp"
-          >Open-source code</a
-        >
-        by Jyotsna Jose
       </div>
     </div>
     <script src="src/index.js"></script>
