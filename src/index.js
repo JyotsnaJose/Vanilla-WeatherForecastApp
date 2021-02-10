@@ -1,6 +1,6 @@
 function getCurrentWeather(response) {
   let cityNameElement = document.querySelector("#cityName");
-  cityNameElement.innerHTML = response.data.name;
+  cityNameElement.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   let tempElement = document.querySelector("#temperature");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   let tempHighElement = document.querySelector("#tempHigh");
