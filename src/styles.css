@@ -77,7 +77,6 @@ h1 {
 }
 .eachDayForecast {
   border-style: groove;
-  border-radius: 4px;
   border-radius: 30px;
   box-shadow: 2px 2px 2px #113757;
   margin-left: 6px;
