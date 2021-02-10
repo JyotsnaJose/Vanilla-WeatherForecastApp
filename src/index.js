@@ -1,5 +1,4 @@
 function getCurrentWeather(response) {
-  console.log(response.data);
   let cityNameElement = document.querySelector("#cityName");
   cityNameElement.innerHTML = response.data.name;
   let tempElement = document.querySelector("#temperature");
@@ -155,7 +154,6 @@ function getForecastDays(timestamp) {
 }
 
 function showForecast(response) {
-  console.log(response.data.daily[0]);
   let forecastElement = document.querySelector("#forecast");
   let forecast = null;
   forecastElement.innerHTML = null;

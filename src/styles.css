@@ -6,7 +6,7 @@ body {
 .container {
   margin-top: 25px;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 .currentWeather-wrapper {
   border-style: groove;
@@ -76,9 +76,21 @@ h1 {
   text-align: center;
 }
 .eachDayForecast {
-  border-style: none;
+  border-style: groove;
+  border-radius: 4px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px #113757;
+  margin-left: 6px;
+  margin-right: 6px;
+  padding-top: 7px;
+  width: 200px;
   transition: all 200ms ease-in-out;
 }
 .eachDayForecast:hover {
-  background: linear-gradient(to right, #235faf 0%, #47d2dc 100%);
+  background: linear-gradient(to right, #569dd6 0%, #47d2dc 100%);
+}
+.footer {
+  padding-top: 5px;
+  font-size: 13px;
+  text-align: center;
 }
