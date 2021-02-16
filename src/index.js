@@ -163,9 +163,9 @@ function showForecast(response) {
     forecastElement.innerHTML += `
   <div class="col-2 col-sm-2 mb-3 mb-sm-0 eachDayForecast">
     <h6 id="forecastDay">${forecastDay}</h6>
-    <img src="images/${
-      forecast.weather[0].icon
-    }.png" alt="" class="forecastIcon" />
+    <img src="images/${forecast.weather[0].icon}.png" alt="${
+      forecast.weather[0].description
+    }" class="forecastIcon" />
     <h6>${Math.round(forecast.temp.max)}º/${Math.round(
       forecast.temp.min
     )}ºC</h6>
